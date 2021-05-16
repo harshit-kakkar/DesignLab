@@ -19,7 +19,7 @@ public class DesignController {
     }
 
     @PostMapping("/save")
-    public String create(@RequestBody Design design){
+    public Design create(@RequestBody Design design){
         // Save details of a design and return the ID of that design
         return designService.saveDesign(design);
     }

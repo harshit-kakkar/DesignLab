@@ -11,8 +11,9 @@ public class DesignService {
     @Autowired
     private DesignRepository designRepository;
 
-    public String saveDesign(Design design){
-        designRepository.save(design);
-        return "Saved successfully";
+    public Design saveDesign(Design design){
+        Design savedDesign = designRepository.save(design);
+
+        return savedDesign;
     }
 }
