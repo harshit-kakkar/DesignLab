@@ -5,6 +5,8 @@ import com.designcart.lab.repository.DesignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DesignService {
 
@@ -15,5 +17,8 @@ public class DesignService {
         Design savedDesign = designRepository.save(design);
 
         return savedDesign;
+    }
+    public Optional<Design> getById(Integer id){
+        return designRepository.findById(id);
     }
 }

@@ -6,6 +6,8 @@ import com.designcart.lab.service.DesignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/design")
 public class DesignController {
@@ -13,9 +15,9 @@ public class DesignController {
     @Autowired
     private DesignService designService;
 
-    @GetMapping("/")
-    public String getSavedDesign(){
-        return "Design details";
+    @GetMapping("/{id}")
+    public Optional<Design> getSavedDesign(@PathVariable("id") Integer id){
+        return designService.getById(id);
     }
 
     @PostMapping("/save")
